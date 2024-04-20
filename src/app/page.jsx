@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,7 +12,7 @@ export default function Home() {
           Where you will find all you need to improve your fitness level
         </p>
       </div>
-      <Image src='/logo.png' width={200} height={200} alt='logo' />
+      <Image src='/logo.png' width={200} height={200} alt='logo' priority />
       <Link
         href='/login'
         className='rounded-md bg-slate-700 p-3 font-semibold hover:bg-slate-500'
