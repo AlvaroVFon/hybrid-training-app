@@ -1,4 +1,4 @@
-import { signup } from '@/actions/auth'
+import { signup } from '@/utils/actions/auth'
 
 async function LoginForm() {
   return (
@@ -26,7 +26,7 @@ async function LoginForm() {
           Sign up
         </a>
       </p>
-      <button className='border p-3 rounded-md'>Submit</button>
+      <button className='border p-2 rounded-md'>Submit</button>
     </form>
   )
 }

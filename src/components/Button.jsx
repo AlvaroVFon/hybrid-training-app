@@ -1,8 +1,8 @@
 'use client'
-export const Button = ({ handleClick, label, className }) => {
+export const Button = ({ handleClick, label, className, children }) => {
   return (
     <button onClick={handleClick} className={className}>
-      {label}
+      {children}
     </button>
   )
 }
