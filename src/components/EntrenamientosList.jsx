@@ -1,12 +1,10 @@
 import dataFetch from '@/utils/dataFetch'
+import { getEntrenamientosByUserId } from '@/lib/actions/getEntrenamientosByUserId'
 import { Button } from './Button'
-const entrenamientos = await dataFetch.entrenamientosPorUsuario(1)
+const entrenamientos = await getEntrenamientosByUserId(1)
 const nombreEntrenamientos = await dataFetch.nombreEntrenamientosPorUsuario(1)
+
 export const EntrenamientosList = () => {
-  const handleDelete = async (entrenamientoId) => {
-    'use server'
-    await dataFetch.borrarEntrenamiento(entrenamientoId)
-  }
   return (
     <div className='flex flex-col items-center justify-center'>
       <h1 className='text-4xl p-6'>Entrenamientos</h1>
@@ -14,10 +12,7 @@ export const EntrenamientosList = () => {
         {nombreEntrenamientos.map((entrenamiento) => (
           <li key={entrenamiento.nombre_entrenamiento}>
             <h2 className='text-xl font-semibold border-b flex items-center gap-3'>
-              <Button
-                className='px-2 py-1'
-                onClick={handleDelete(entrenamiento.id)}
-              >
+              <Button className='px-2 py-1'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='icon icon-tabler icon-tabler-trash-filled'

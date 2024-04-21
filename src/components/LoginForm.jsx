@@ -1,4 +1,4 @@
-import { signup } from '@/utils/actions/auth'
+import { signup } from '@/lib/actions/auth'
 
 async function LoginForm() {
   return (

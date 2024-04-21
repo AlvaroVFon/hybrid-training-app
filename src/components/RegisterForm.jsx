@@ -1,3 +1,4 @@
+import styles from '@/styles/calendar.module.css'
 export const RegisterForm = () => {
   return (
     <form className='flex flex-col items-center p-10 gap-10'>
@@ -22,7 +23,7 @@ export const RegisterForm = () => {
         <span>Añadir registro</span>
       </button>
       <div className='flex justify-center items-center'>
-        <input type='date' className='bg-transparent focus:outline-none' />
+        <input type='date' name='date' className={styles.calendar} />
       </div>
     </form>
   )
