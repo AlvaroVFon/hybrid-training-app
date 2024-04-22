@@ -1,16 +1,14 @@
-import dataFetch from '@/utils/dataFetch'
-import { getEntrenamientosByUserId } from '@/lib/actions/getEntrenamientosByUserId'
+import { obtenerEntrenamientos } from '@/lib/obtenerEntrenamientos'
 import { Button } from './Button'
-const entrenamientos = await getEntrenamientosByUserId(1)
-const nombreEntrenamientos = await dataFetch.nombreEntrenamientosPorUsuario(1)
+export const EntrenamientosList = async () => {
+  const entrenamientos = await obtenerEntrenamientos(1)
 
-export const EntrenamientosList = () => {
   return (
     <div className='flex flex-col items-center justify-center'>
       <h1 className='text-4xl p-6'>Entrenamientos</h1>
       <ul className='w-full flex flex-col items-start justify-center gap-10 p-20'>
-        {nombreEntrenamientos.map((entrenamiento) => (
-          <li key={entrenamiento.nombre_entrenamiento}>
+        {entrenamientos.map((entrenamiento) => (
+          <li key={entrenamiento?.nombreEntrenamiento}>
             <h2 className='text-xl font-semibold border-b flex items-center gap-3'>
               <Button className='px-2 py-1'>
                 <svg
@@ -38,23 +36,8 @@ export const EntrenamientosList = () => {
                   />
                 </svg>
               </Button>
-              {entrenamiento.nombre_entrenamiento}
+              {entrenamiento.nombreEntrenamiento}
             </h2>
-            <ul>
-              {entrenamientos
-                .filter(
-                  (ent) =>
-                    ent.nombre_entrenamiento ===
-                    entrenamiento.nombre_entrenamiento
-                )
-                .map((ent) => (
-                  <li key={ent.id_ejercicio} className='flex gap-5'>
-                    <h3>{ent.nombre_ejercicio}</h3>
-                    <span>-</span>
-                    <p>{ent.disciplina}</p>
-                  </li>
-                ))}
-            </ul>
           </li>
         ))}
       </ul>

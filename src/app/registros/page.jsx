@@ -1,12 +1,12 @@
-import { RegisterForm } from '@/components/RegisterForm'
+import RegisterForm from '@/components/RegisterForm'
 import { RegisterList } from '@/components/RegisterList'
 
-function EntrenamientosPage() {
+function EntrenamientosPage({ searchParams }) {
   return (
     <>
       <div className='flex flex-col items-center justify-center'>
         <RegisterForm />
-        <RegisterList />
+        <RegisterList searchParams={searchParams} />
       </div>
     </>
   )

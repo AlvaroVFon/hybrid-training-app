@@ -1,13 +1,16 @@
 'use client'
 import { Button } from './Button'
+import { useRouter } from 'next/navigation'
 export const Header = () => {
+  const date = new Date().toISOString().split('T')[0]
+  const router = useRouter()
   const toggleMenu = () => {
     const menu = document.querySelector('nav')
     menu.classList.toggle('hidden')
     menu.classList.toggle('flex')
   }
   return (
-    <header className='relative flex justify-between items-center p-5 '>
+    <header className='relative flex justify-between items-center p-5 z-50'>
       <a href='/'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -37,7 +40,7 @@ export const Header = () => {
           <path fill='#ffffff' d='M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z' />
         </svg>
       </Button>
-      <nav className='hidden flex-col absolute w-full h-screen items-center top-0 left-0 gap-8 bg-[#202020] pt-[50px] font-light'>
+      <nav className='hidden flex-col absolute w-full h-screen items-center top-0 left-0 gap-16 bg-[#202020] pt-[50px] font-light text-xl'>
         <a href='#' onClick={toggleMenu}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -56,9 +59,9 @@ export const Header = () => {
             <path d='M6 6l12 12' stroke='#fb923c' />
           </svg>
         </a>
-        <a href='/entrenamientos'>Entrenamientos</a>
-        <a href='/registros'>Registros</a>
-        <a href='/medidas'>Medidas</a>
+        <a href='/entrernamientos'>Entrenamientos</a>
+        <a href={`/registros?date=${date}`}>Registros</a>
+        <a href={`/medidas?date=${date}`}>Medidas</a>
         <a href='/perfil'>Perfil</a>
         <a href='/logout'>Logout</a>
       </nav>
