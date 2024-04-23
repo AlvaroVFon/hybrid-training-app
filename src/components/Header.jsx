@@ -59,7 +59,7 @@ export const Header = () => {
             <path d='M6 6l12 12' stroke='#fb923c' />
           </svg>
         </a>
-        <a href='/entrernamientos'>Entrenamientos</a>
+        <a href='/entrenamientos'>Entrenamientos</a>
         <a href={`/registros?date=${date}`}>Registros</a>
         <a href={`/medidas?date=${date}`}>Medidas</a>
         <a href='/perfil'>Perfil</a>

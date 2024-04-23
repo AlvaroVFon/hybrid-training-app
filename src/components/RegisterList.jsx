@@ -1,4 +1,4 @@
-import { obtenerRegistrosEntrenamientos } from '@/lib/obtenerRegistrosEntrenamientos'
+import { obtenerRegistrosEntrenamientos } from '@/lib/database/obtenerRegistrosEntrenamientos'
 export const RegisterList = async ({ searchParams }) => {
   const { date } = await searchParams
   const registros = await obtenerRegistrosEntrenamientos(date, 1)

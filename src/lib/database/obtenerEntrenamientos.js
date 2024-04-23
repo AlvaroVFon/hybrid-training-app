@@ -1,3 +1,4 @@
+'use server'
 import { sql } from '@vercel/postgres'
 export const obtenerEntrenamientos = async (userID) => {
   const { rows } =

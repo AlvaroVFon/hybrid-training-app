@@ -33,14 +33,16 @@ const RegisterForm = () => {
           </svg>
         </Link>
         <div className='flex gap-3'>
-          <input
-            type='date'
-            name='date'
-            placeholder='Añadir Registro'
-            className={`${styles.calendar} text-center`}
-            defaultValue={defatultDate}
-            onChange={handleChange}
-          />
+          {pathname !== '/medidas' && (
+            <input
+              type='date'
+              name='date'
+              placeholder='Añadir Registro'
+              className={`${styles.calendar} text-center`}
+              defaultValue={defatultDate}
+              onChange={handleChange}
+            />
+          )}
         </div>
       </div>
     </>

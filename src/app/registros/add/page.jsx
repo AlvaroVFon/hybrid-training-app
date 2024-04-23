@@ -1,8 +1,10 @@
-function RegisterAddPage() {
+import AddEjerciciosForm from '@/components/AddEjerciciosForm'
+import AddRegisterForm from '@/components/AddRegisterForm'
+async function RegisterAddPage({ searchParams }) {
   return (
     <div>
-      <h1>Registro de Entrenamientos</h1>
-      <p>Formulario para añadir un registro de entrenamiento</p>
+      <AddRegisterForm />
+      <AddEjerciciosForm searchParams={searchParams} />
     </div>
   )
 }

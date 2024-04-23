@@ -1,0 +1,11 @@
+.opt {
+  background-color: #202020;
+  color: white;
+}
+.slct {
+  background-color: #202020;
+  color: white;
+}
+.slct:focus {
+  outline: none;
+}
