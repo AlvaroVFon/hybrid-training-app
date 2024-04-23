@@ -3,7 +3,7 @@ async function AddEjerciciosForm({ searchParams }) {
   const { select } = await searchParams
   const ejercicios = await obtenerEjerciciosEntrenamiento(select)
   return (
-    <form className='flex flex-col items-center'>
+    <form className='flex flex-col items-center pb-5'>
       {ejercicios.map((ejercicio) => (
         <div className='p-10'>
           <label htmlFor='' className='text-xl'>
@@ -34,7 +34,11 @@ async function AddEjerciciosForm({ searchParams }) {
           </div>
         </div>
       ))}
-      <button className='p-3 w-full'>Guardar</button>
+      {select && (
+        <button className='p-3 border rounded-lg hover:bg-orange-300 hover:text-black  '>
+          Guardar
+        </button>
+      )}
     </form>
   )
 }
