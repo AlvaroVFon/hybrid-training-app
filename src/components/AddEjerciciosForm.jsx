@@ -4,8 +4,8 @@ async function AddEjerciciosForm({ searchParams }) {
   const ejercicios = await obtenerEjerciciosEntrenamiento(select)
   return (
     <form className='flex flex-col items-center pb-5'>
-      {ejercicios.map((ejercicio) => (
-        <div className='p-10'>
+      {ejercicios.map((ejercicio, index) => (
+        <div className='p-10' key={index}>
           <label htmlFor='' className='text-xl'>
             {ejercicio.nombre}
           </label>

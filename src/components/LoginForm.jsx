@@ -1,6 +1,11 @@
-async function LoginForm() {
+import { login } from '@/lib/actions/login'
+
+function LoginForm() {
   return (
-    <form className='flex flex-col w-full h-screen items-center justify-center gap-16'>
+    <form
+      action={login}
+      className='flex flex-col w-full h-screen items-center justify-center gap-16'
+    >
       <input
         type='text'
         name='email'

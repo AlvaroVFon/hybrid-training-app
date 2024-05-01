@@ -1,10 +1,6 @@
-import AddEntrenamientoForm from '@/components/AddRegisterForm'
+import AddEntrenamientoForm from '@/components/AddEntrenamientoForm'
 
 function EntrenamientosAdd({ searchParams }) {
-  return (
-    <div className='flex flex-col items-center justify-center'>
-      <h1 className='text-2xl font-bold'>Crear un nuevo entrenamiento</h1>
-    </div>
-  )
+  return <AddEntrenamientoForm />
 }
 export default EntrenamientosAdd

@@ -7,9 +7,7 @@ export const guardarMedidas = async (formData) => {
   const porcentajeGraso = formData.get('porcentajeGraso')
   const fechaCreacion = formData.get('fechaCreacion')
   const idUsuario = 1
-
+  console.log(peso, altura, porcentajeGraso, fechaCreacion, idUsuario)
   const { rows } =
     await sql`INSERT INTO caracteristicas (userid,altura,peso,porcentajegraso,fechacreacion) VALUES (${idUsuario},${altura},${peso},${porcentajeGraso},${fechaCreacion})`
-
-  redirect('/medidas')
 }

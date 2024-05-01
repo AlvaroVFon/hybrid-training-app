@@ -19,3 +19,4 @@ INNER JOIN ejercicios ej ON ee."ejercicioID" = ej."ejercicioID"
 INNER JOIN usuarios u ON ent."userID" = u."userID"
 WHERE u."userID" = 1;
 
+SELECT max(entrenamientoID) FROM "entrenamientos";
