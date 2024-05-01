@@ -1,20 +1,13 @@
 'use server'
 import { getUser } from '../database/getUser'
-import { redirect } from 'next/navigation'
-const login = async (formdata) => {
-  const email = formdata.get('email')
-  const password = formdata.get('password')
-
-  const isRegistered = await getUser(email, password)
-  if (isRegistered) {
-    const { rol } = isRegistered
-    if (rol === 'admin') {
-      redirect('/admin')
-    }
-    redirect('/entrenamientos')
+const login = async (email, password) => {
+  const registered = await getUser(email, password)
+  if (registered) {
+    const { email, rol } = registered
+    const user = { email, rol }
+    return user
   } else {
-    redirect('/loginError')
+    return false
   }
 }
-
 export { login }

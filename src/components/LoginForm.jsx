@@ -1,9 +1,29 @@
+'use client'
 import { login } from '@/lib/actions/login'
-
 function LoginForm() {
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    const user = {
+      email: e.target.email.value,
+      password: e.target.password.value,
+    }
+    const res = await login(user.email, user.password)
+    if (res) {
+      const { rol } = res
+      if (rol === 'admin') {
+        window.location.href = '/admin'
+      } else {
+        window.location.href = '/user'
+      }
+      sessionStorage.setItem('user', JSON.stringify(user))
+    } else {
+      alert('Usuario o contraseña incorrectos')
+      window.location.reload()
+    }
+  }
   return (
     <form
-      action={login}
+      onSubmit={onSubmit}
       className='flex flex-col w-full h-screen items-center justify-center gap-16'
     >
       <input
@@ -28,7 +48,9 @@ function LoginForm() {
           Sign up
         </a>
       </p>
-      <button className='border p-2 rounded-md'>Submit</button>
+      <button onSubmit={onSubmit} className='border p-2 rounded-md'>
+        Submit
+      </button>
     </form>
   )
 }
