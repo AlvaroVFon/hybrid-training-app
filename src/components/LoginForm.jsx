@@ -13,7 +13,7 @@ function LoginForm() {
       if (rol === 'admin') {
         window.location.href = '/admin'
       } else {
-        window.location.href = '/user'
+        window.location.href = '/entrenamientos'
       }
       sessionStorage.setItem('user', JSON.stringify(user))
     } else {
