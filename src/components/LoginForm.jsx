@@ -12,8 +12,10 @@ function LoginForm() {
     const res = await login(user.email, user.password)
     if (res) {
       const { userID, email, rol } = res
-      if (rol === 'admin') {
+      if (rol === 'administrador') {
         window.location.href = '/admin'
+      } else if (rol === 'usuario') {
+        window.location.href = '/entrenamientos'
       }
       loginSession({ userID, email, rol })
     } else {

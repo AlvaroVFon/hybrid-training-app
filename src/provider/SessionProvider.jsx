@@ -1,6 +1,5 @@
 'use client'
 import { createContext, useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 
 const SessionContext = createContext({
   user: null,
@@ -9,7 +8,6 @@ const SessionContext = createContext({
 })
 
 export default function SessionProvider({ children }) {
-  const router = useRouter()
   const [user, setUser] = useState(null)
   useEffect(() => {
     const user = sessionStorage.getItem('user')
@@ -21,7 +19,6 @@ export default function SessionProvider({ children }) {
   const login = (user) => {
     sessionStorage.setItem('user', JSON.stringify(user))
     setUser(user)
-    router.push('/entrenamientos')
   }
 
   const logout = () => {
