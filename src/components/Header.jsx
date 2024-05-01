@@ -1,9 +1,9 @@
 'use client'
 import { Button } from './Button'
-import { useRouter } from 'next/navigation'
+import { useSession } from '@/provider/SessionProvider'
 export const Header = () => {
+  const { user, logout } = useSession()
   const date = new Date().toISOString().split('T')[0]
-  const router = useRouter()
   const toggleMenu = () => {
     const menu = document.querySelector('nav')
     menu.classList.toggle('hidden')
@@ -63,7 +63,9 @@ export const Header = () => {
         <a href={`/registros?date=${date}`}>Registros</a>
         <a href={`/medidas?date=${date}`}>Medidas</a>
         <a href='/perfil'>Perfil</a>
-        <a href='/logout'>Logout</a>
+        <a href='/login' onClick={logout}>
+          Logout
+        </a>
       </nav>
     </header>
   )

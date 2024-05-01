@@ -1,5 +1,6 @@
 'use client'
-import { useState, useEffect, createContext, useContext } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const SessionContext = createContext({
   user: null,
@@ -8,23 +9,24 @@ const SessionContext = createContext({
 })
 
 export default function SessionProvider({ children }) {
+  const router = useRouter()
   const [user, setUser] = useState(null)
-
   useEffect(() => {
-    const user = localStorage.getItem('user')
-    if (user) {
-      setUser(JSON.parse(user))
-    }
+    const user = sessionStorage.getItem('user')
+      ? JSON.parse(sessionStorage.getItem('user'))
+      : null
+    setUser(user)
   }, [])
 
   const login = (user) => {
-    localStorage.setItem('user', JSON.stringify(user))
+    sessionStorage.setItem('user', JSON.stringify(user))
     setUser(user)
+    router.push('/entrenamientos')
   }
 
   const logout = () => {
-    localStorage.removeItem('user')
     setUser(null)
+    sessionStorage.removeItem('user')
   }
 
   return (

@@ -30,11 +30,8 @@ export const EntrenamientosList = async () => {
       </Link>
 
       <div className='w-full flex flex-col items-start justify-center gap-10 p-20'>
-        {entrenamientos.map((entrenamiento) => (
-          <div
-            key={entrenamiento?.nombreEntrenamiento}
-            className='w-full flex flex-col'
-          >
+        {entrenamientos.map((entrenamiento, index) => (
+          <div key={index} className='w-full flex flex-col'>
             <h2 className='text-xl font-semibold border-b flex items-center justify-center gap-3'>
               <Button className='px-2 py-1'>
                 <svg
@@ -68,8 +65,8 @@ export const EntrenamientosList = async () => {
               {obtenerEjerciciosEntrenamiento(
                 entrenamiento.entrenamientoID
               ).then((ejercicios) =>
-                ejercicios.map((ejercicio) => (
-                  <li key={ejercicio?.nombre}>{ejercicio?.nombre}</li>
+                ejercicios.map((ejercicio, index) => (
+                  <li key={index}>{ejercicio?.nombre}</li>
                 ))
               )}
             </ul>

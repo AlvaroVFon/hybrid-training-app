@@ -1,6 +1,8 @@
 'use client'
 import { login } from '@/lib/actions/login'
+import { useSession } from '@/provider/SessionProvider'
 function LoginForm() {
+  const { login: loginSession } = useSession()
   const onSubmit = async (e) => {
     e.preventDefault()
     const user = {
@@ -9,13 +11,11 @@ function LoginForm() {
     }
     const res = await login(user.email, user.password)
     if (res) {
-      const { rol } = res
+      const { userID, email, rol } = res
       if (rol === 'admin') {
         window.location.href = '/admin'
-      } else {
-        window.location.href = '/entrenamientos'
       }
-      sessionStorage.setItem('user', JSON.stringify(user))
+      loginSession({ userID, email, rol })
     } else {
       alert('Usuario o contraseña incorrectos')
       window.location.reload()
