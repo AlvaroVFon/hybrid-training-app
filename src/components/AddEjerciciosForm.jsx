@@ -5,7 +5,7 @@ async function AddEjerciciosForm({ searchParams }) {
   return (
     <form className='flex flex-col items-center pb-5'>
       {ejercicios.map((ejercicio, index) => (
-        <div className='p-10' key={index}>
+        <div key={index} className='p-10'>
           <label htmlFor='' className='text-xl'>
             {ejercicio.nombre}
           </label>

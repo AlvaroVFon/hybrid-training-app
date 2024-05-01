@@ -11,6 +11,7 @@ function LoginForm() {
         name='email'
         placeholder='Email'
         className='bg-[#202020] border-b p-3 focus:outline-none'
+        required
       />
       <div className=''>
         <input
@@ -18,6 +19,7 @@ function LoginForm() {
           name='password'
           placeholder='Password'
           className='bg-[#202020] border-b p-3 focus:outline-none'
+          required
         />
       </div>
       <p>
